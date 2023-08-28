@@ -6,7 +6,8 @@
 
 @section('content')
     <h4>Create Item </h4>
-    <form action="">
+    <form action=" {{ route('item.store') }} " method="post">
+        @csrf
         <div class="mb-3">
             <label for="" class="form-label">Item Name</label>
             <input type="text" class="form-control " name="name">
