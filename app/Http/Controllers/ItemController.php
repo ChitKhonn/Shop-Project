@@ -20,6 +20,11 @@ class ItemController extends Controller
         ]);
     }
 
+    public function show($id){
+        return view("inventory.show",[
+            'item'=> Item::find($id)
+        ]);
+    }
     public function store(Request $request) {
         // dd($request-> name);
         $item = new Item();

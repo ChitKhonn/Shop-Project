@@ -18,5 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get("/",[PageController::class, "home"] )->name("page.home");
 Route::get("/inventory",[ItemController::class, "index"] )->name("item.index");
 Route::get("/inventory/create",[ItemController::class, "create"] )->name("item.create");
+Route::get("/inventory/{id}",[ItemController::class, "show"] )->name("item.show");
 Route::post("/inventory",[ItemController::class, "store"] )->name("item.store");
 
