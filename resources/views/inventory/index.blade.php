@@ -24,18 +24,26 @@
                     <td> {{ $item->name }} </td>
                     <td>{{ $item->price }}</td>
                     <td> {{ $item->stock }} </td>
-                    <td>
-                        <a  href=" {{ route("item.show", $item->id) }} " class="btn btn-outline-primary "> Details </a>
+                    <td >
+                        <a href=" {{ route('item.show', $item->id) }} " class="btn btn-sm btn-outline-primary "> Details </a>
+                        <form class="d-inline-block" action="  {{ route('item.destory', $item->id) }} " method="post">
+                            @method('delete')
+                            @csrf
+
+                            <button class="btn btn-sm btn-outline-danger"> Delete </button>
+                        </form>
                     </td>
                 </tr>
             @empty
                 <tr>
                     <td colspan="5" class="text-center">
                         There is no record <br>
-                        <a href="{{route('item.create')}}">Create Item</a>
+                        <a href="{{ route('item.create') }}">Create Item</a>
                     </td>
+
+
                 </tr>
-                @endforelse
+            @endforelse
         </tbody>
     </table>
 @endsection

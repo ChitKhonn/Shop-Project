@@ -20,4 +20,6 @@ Route::get("/inventory",[ItemController::class, "index"] )->name("item.index");
 Route::get("/inventory/create",[ItemController::class, "create"] )->name("item.create");
 Route::get("/inventory/{id}",[ItemController::class, "show"] )->name("item.show");
 Route::post("/inventory",[ItemController::class, "store"] )->name("item.store");
+Route::delete("/inventory/{id}",[ItemController::class, "destory"] )->name("item.destory");
+
 

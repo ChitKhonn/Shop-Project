@@ -21,8 +21,17 @@ class ItemController extends Controller
     }
 
     public function show($id){
+        // $item = Item::find($id);
+
+        // if(is_null($item)){
+        //     abort(404);
+        // }
+
+
+        // return view("inventory.show",compact("item"));
+
         return view("inventory.show",[
-            'item'=> Item::find($id)
+            'item'=> Item::findOrFail($id)
         ]);
     }
     public function store(Request $request) {
@@ -40,4 +49,11 @@ class ItemController extends Controller
         // ]);
         return redirect()->route("item.index");
     }
+
+public function destory($id){
+    $item = Item::findOrFail($id);
+    $item->delete();
+    return redirect()->back();
+
+}
 }
