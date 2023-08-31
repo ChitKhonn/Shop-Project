@@ -56,4 +56,23 @@ public function destory($id){
     return redirect()->back();
 
 }
+
+public function edit($id){
+    return view("inventory.edit",[
+        'item'=>Item::findOrFail($id)
+    ]) ;
+}
+
+public function update($id, Request $request){
+
+    $item =Item::findOrFail($id);
+    $item->name = $request->name;
+    $item->price = $request->price;
+    $item->stock = $request->stock;
+
+    $item->update();
+
+    return redirect()->route("item.index");
+}
+
 }

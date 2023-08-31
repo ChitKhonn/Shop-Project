@@ -26,12 +26,14 @@
                     <td> {{ $item->stock }} </td>
                     <td >
                         <a href=" {{ route('item.show', $item->id) }} " class="btn btn-sm btn-outline-primary "> Details </a>
+                        <a href="  {{ route('item.edit',$item->id) }} " class="btn btn-sm btn-outline-info " > Update </a>
                         <form class="d-inline-block" action="  {{ route('item.destory', $item->id) }} " method="post">
                             @method('delete')
                             @csrf
 
                             <button class="btn btn-sm btn-outline-danger"> Delete </button>
                         </form>
+
                     </td>
                 </tr>
             @empty
